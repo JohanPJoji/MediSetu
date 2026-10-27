@@ -1,0 +1,66 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+}
+
+/* ─── Variants ─── */
+.default {
+  background: var(--color-surface-muted);
+  color: var(--color-foreground-muted);
+  border: 1px solid var(--color-border);
+}
+
+.success {
+  background: #E6F5EE;
+  color: var(--color-success);
+  border: 1px solid #B8DFC9;
+}
+
+.warning {
+  background: var(--color-ai-draft-bg);
+  color: var(--color-warning);
+  border: 1px solid #E8C88A;
+}
+
+.critical {
+  background: #FAEAEA;
+  color: var(--color-critical);
+  border: 1px solid #EDB8B8;
+}
+
+.info {
+  background: #E6EFF5;
+  color: var(--color-info);
+  border: 1px solid #B8CDD9;
+}
+
+.accent {
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+  border: 1px solid #BFD9D5;
+}
+
+.ai-draft {
+  background: var(--color-ai-draft-bg);
+  color: var(--color-ai-draft);
+  border: 1px solid #E8C88A;
+}
+
+/* ─── StatusBadge ─── */
+.statusBadge {
+  font-size: var(--text-caption);
+}
+
+.statusIcon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875em;
+}

@@ -1,0 +1,163 @@
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.doctorOnly {
+  font-size: var(--text-caption);
+  font-family: var(--font-mono);
+  color: var(--color-foreground-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+}
+
+.panelBody {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ─── Suggestion item — three visual states ─── */
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+/* AI-suggested: amber wash + left border */
+.aiItem {
+  background: var(--color-ai-draft-bg);
+  border-color: #E8C88A;
+  border-left: 3px solid var(--color-ai-draft);
+}
+
+/* Alternative: neutral wash */
+.altItem {
+  background: var(--color-surface-muted);
+  border-color: var(--color-border-strong);
+  border-left: 3px solid var(--color-foreground-muted);
+}
+
+/* Confirmed: teal wash + left border */
+.confirmedItem {
+  background: var(--color-accent-tint);
+  border-color: #BFD9D5;
+  border-left: 3px solid var(--color-confirmed);
+}
+
+/* ─── Item header ─── */
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.itemName {
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-foreground);
+}
+
+/* State badges — always icon + label + color */
+.aiBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--color-ai-draft);
+  background: rgba(179,114,15,0.10);
+  border: 1px solid rgba(179,114,15,0.25);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+}
+
+.altBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground-muted);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+}
+
+.confirmedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--color-confirmed);
+  background: rgba(15,110,99,0.10);
+  border: 1px solid rgba(15,110,99,0.20);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+}
+
+/* ─── Item metadata ─── */
+.itemMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+}
+
+.notes {
+  width: 100%;
+  color: var(--color-foreground-muted);
+  font-size: var(--text-label);
+}
+
+/* ─── Item actions ─── */
+.itemActions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.errorBox {
+  padding: var(--space-3) var(--space-4);
+  background: #FAEAEA;
+  border: 1px solid #EDB8B8;
+  border-left: 3px solid var(--color-critical);
+  border-radius: var(--radius-sm);
+  color: var(--color-critical);
+  font-size: var(--text-body);
+}

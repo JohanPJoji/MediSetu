@@ -1,0 +1,13 @@
+.page { display: flex; flex-direction: column; gap: var(--space-6); }
+.pageHeader { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.title { font-size: var(--text-title-lg); font-weight: var(--weight-semibold); color: var(--color-foreground); margin: 0; }
+.loadingText { color: var(--color-foreground-muted); font-size: var(--text-body); }
+
+.tableWrapper {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); overflow: hidden;
+}
+
+.nameCell { font-weight: var(--weight-medium); color: var(--color-foreground); }
+.expired { color: var(--color-critical); display: inline-flex; align-items: center; gap: 4px; font-weight: var(--weight-medium); }
+.warnIcon { color: var(--color-critical); }

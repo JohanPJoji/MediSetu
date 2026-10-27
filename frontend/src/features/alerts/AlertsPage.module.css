@@ -1,0 +1,29 @@
+.page { display: flex; flex-direction: column; gap: var(--space-6); }
+.pageHeader { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.title { font-size: var(--text-title-lg); font-weight: var(--weight-semibold); color: var(--color-foreground); margin: 0; }
+.loadingText { color: var(--color-foreground-muted); font-size: var(--text-body); }
+
+.content { display: flex; flex-direction: column; gap: var(--space-8); }
+.section { display: flex; flex-direction: column; gap: var(--space-4); }
+.sectionTitle { font-size: var(--text-title); font-weight: var(--weight-semibold); color: var(--color-foreground); margin: 0; }
+.list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  border-left: 4px solid transparent;
+}
+
+.cardcritical { border-left-color: var(--color-critical); }
+.cardwarning { border-left-color: var(--color-warning); }
+.cardinfo { border-left-color: var(--color-info); }
+.cardResolved { border-left-color: var(--color-success); opacity: 0.7; }
+
+.cardHeader { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.alertType { font-family: var(--font-mono); font-size: var(--text-label); color: var(--color-foreground-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.message { font-size: var(--text-body); color: var(--color-foreground); margin: 0; }
+
+.metaRow { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-2); }
+.metaDate { font-size: var(--text-caption); color: var(--color-foreground-muted); }

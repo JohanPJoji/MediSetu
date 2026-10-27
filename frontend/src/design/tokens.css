@@ -1,0 +1,104 @@
+/**
+ * MediSetu Design System — Token Layer
+ * Source of truth: /Design.md § Color Tokens, Typography, Radius, Elevation
+ * Never use raw hex values in component CSS — always reference these variables.
+ */
+
+:root {
+  /* ─── Color — Canvas & Surface ─────────────────────────────── */
+  --color-background:      #FAF9F6;
+  --color-surface:         #FFFFFF;
+  --color-surface-muted:   #F1EFEA;
+
+  /* ─── Color — Foreground ────────────────────────────────────── */
+  --color-foreground:      #1B1D1B;
+  --color-foreground-muted:#5B615C;
+
+  /* ─── Color — Border ────────────────────────────────────────── */
+  --color-border:          #E3E0D8;
+  --color-border-strong:   #C7C3B8;
+
+  /* ─── Color — Accent (primary action, links, nav, focus) ───── */
+  --color-accent:          #0F6E63;
+  --color-accent-hover:    #0B5750;
+  --color-accent-tint:     #E5F1EE;
+
+  /* ─── Color — Semantic Status ───────────────────────────────── */
+  --color-success:         #1E8A5F;
+  --color-warning:         #B3720F;
+  --color-critical:        #A3241D;
+  --color-info:            #3D6E8C;
+
+  /* ─── Color — AI-Draft vs. Confirmed (non-negotiable pattern) ─ */
+  --color-ai-draft:        #B3720F;
+  --color-ai-draft-bg:     #FBF3E6;
+  --color-confirmed:       #0F6E63;  /* reuses accent */
+
+  /* ─── Radius ────────────────────────────────────────────────── */
+  --radius-sm:   4px;   /* inputs, small buttons, table cells */
+  --radius-md:   8px;   /* cards, panels, modals */
+  --radius-lg:   12px;  /* large containment, page panels */
+  --radius-full: 9999px;/* badges, chips, avatar — NEVER primary buttons */
+
+  /* ─── Shadow (flat by default — shadow only for floating UI) ── */
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px rgba(27, 29, 27, 0.06);   /* dropdowns, popovers */
+  --shadow-md:   0 4px 12px rgba(27, 29, 27, 0.10);  /* modals, floating action bars */
+
+  /* ─── Typography — Family ───────────────────────────────────── */
+  --font-sans:  'IBM Plex Sans', 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:  'IBM Plex Mono', 'Noto Sans Mono', ui-monospace, monospace;
+
+  /* ─── Typography — Scale ────────────────────────────────────── */
+  /* token      | size      | weight | use */
+  --text-display:   2.25rem; /* 36px  | 600 | dashboard heading, empty-state heading */
+  --text-title-lg:  1.5rem;  /* 24px  | 600 | page/section titles */
+  --text-title:     1.125rem;/* 18px  | 600 | card headers, table section headers */
+  --text-body-lg:   1rem;    /* 16px  | 400 | patient app default — HARD FLOOR */
+  --text-body:      0.9375rem; /* 15px | 400 | doctor/admin app default */
+  --text-label:     0.8125rem; /* 13px | 500 | form labels, table headers, tabs */
+  --text-caption:   0.75rem; /* 12px  | 400 | metadata, timestamps — use font-mono */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+
+  /* ─── Spacing — 4px base grid ───────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ─── Motion ────────────────────────────────────────────────── */
+  --transition-fast:   120ms ease-out;
+  --transition-normal: 180ms ease-out;
+
+  /* ─── Layout ────────────────────────────────────────────────── */
+  --sidebar-width:      220px;
+  --topbar-height:      56px;
+  --content-max-width:  1400px;
+  --patient-max-width:  480px; /* max-w-lg equivalent for patient reading width */
+}
+
+/* ─── Dark Mode (Doctor/Admin only — token layer ready, no toggle UI yet) ─── */
+[data-theme="dark"] {
+  --color-background:      #14171A;
+  --color-surface:         #1B1F22;
+  --color-surface-muted:   #1F2428;
+  --color-foreground:      #EDEBE6;
+  --color-foreground-muted:#A0A69E;
+  --color-border:          #2A2E31;
+  --color-border-strong:   #3A3E42;
+  /* Status hues lifted ~8-10% lightness for dark mode contrast */
+  --color-success:         #22A070;
+  --color-warning:         #CC831A;
+  --color-critical:        #C02C24;
+  --color-ai-draft:        #CC831A;
+  --color-ai-draft-bg:     #2A2115;
+}

@@ -1,0 +1,146 @@
+/**
+ * MediSetu — Global styles
+ * Imports: fonts first, then tokens, then resets and base.
+ */
+@import './fonts.css';
+@import './tokens.css';
+
+/* ─── Box model reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Root & body ──────────────────────────────────────────────── */
+html {
+  /* Native scroll only — no hijacking libraries */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.55;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography base ──────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+  color: var(--color-foreground);
+}
+
+p {
+  max-width: 72ch; /* keeps body lines under 75 chars per design.md */
+}
+
+/* Monospace data: timestamps, IDs, vitals, dosages */
+.mono,
+code,
+time {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+}
+
+/* ─── Interactive element inherits ─────────────────────────────── */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ─── Focus ring — visible everywhere, design.md § Accessibility ─ */
+/* 2px accent outline, 2px offset — matches design spec */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Images & media ───────────────────────────────────────────── */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Lists ────────────────────────────────────────────────────── */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ─── Utility: screen-reader only ─────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Utility: monospace data ──────────────────────────────────── */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ─── Motion — prefers-reduced-motion ──────────────────────────── */
+/* All transitions are wrapped in this media query per design.md */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Scrollbar (subtle) ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground-muted);
+}

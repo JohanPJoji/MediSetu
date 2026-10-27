@@ -1,0 +1,47 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ─── Patient density — roomy, mobile-first, large rhythm ─── */
+.patientContent {
+  max-width: var(--patient-max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+
+/* ─── Clinical density — compact, full-width, information-dense ─── */
+.clinicalContent {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .clinicalContent {
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .patientContent,
+  .clinicalContent {
+    padding: var(--space-4);
+  }
+}

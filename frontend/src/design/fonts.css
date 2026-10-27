@@ -1,0 +1,10 @@
+/**
+ * MediSetu — Font imports
+ * IBM Plex Sans: UI body text (400, 500, 600)
+ * IBM Plex Mono: timestamps, IDs, vitals, dosages (400)
+ * Noto Sans: non-Latin script fallback (400, 600) — required for
+ *   Devanagari, Malayalam, Tamil, Arabic transcripts.
+ * Load order matters: Plex first so it takes priority for Latin glyphs;
+ * Noto fills in everything Plex doesn't cover.
+ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans:wght@400;600&display=swap');

@@ -1,0 +1,108 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.header {
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground-muted);
+  background: var(--color-surface-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.empty {
+  padding: var(--space-8) var(--space-5);
+  color: var(--color-foreground-muted);
+  font-size: var(--text-body);
+  text-align: center;
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ─── Each turn is a structured record row, not a bubble ─── */
+.turn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.turn:last-child {
+  border-bottom: none;
+}
+
+/* Alternate background for patient vs system turns for readability */
+.patient {
+  background: var(--color-surface);
+}
+
+.system,
+.ai {
+  background: var(--color-surface-muted);
+}
+
+.doctor,
+.nurse {
+  background: var(--color-accent-tint);
+}
+
+/* ─── Meta row: speaker + timestamp ─── */
+.meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.speaker {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* AI/System speaker is muted */
+.system .speaker,
+.ai .speaker {
+  color: var(--color-foreground-muted);
+}
+
+/* Doctor speaker is accented */
+.doctor .speaker,
+.nurse .speaker {
+  color: var(--color-accent);
+}
+
+.timestamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--color-foreground-muted);
+}
+
+/* ─── Transcript text ─── */
+.text {
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  margin: 0;
+  max-width: none;
+  /* Noto Sans covers non-Latin glyphs automatically via font-family fallback */
+}

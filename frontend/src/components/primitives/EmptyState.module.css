@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  gap: var(--space-4);
+}
+
+.icon {
+  color: var(--color-foreground-muted);
+  opacity: 0.5;
+  font-size: 2.5rem;
+  display: inline-flex;
+}
+
+.title {
+  font-size: var(--text-title);
+  font-weight: var(--weight-semibold);
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+.description {
+  font-size: var(--text-body);
+  color: var(--color-foreground-muted);
+  max-width: 44ch;
+  margin: 0;
+}
+
+.action {
+  margin-top: var(--space-2);
+}

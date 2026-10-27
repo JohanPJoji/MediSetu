@@ -1,0 +1,168 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* ─── AI-Draft state ─── */
+.draftPanel {
+  background: var(--color-ai-draft-bg);
+  border-color: #E8C88A;
+  border-left: 3px solid var(--color-ai-draft);
+}
+
+/* ─── Confirmed state ─── */
+.confirmedPanel {
+  background: var(--color-surface);
+  border-color: #BFD9D5;
+  border-left: 3px solid var(--color-confirmed);
+}
+
+/* ─── Header ─── */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground-muted);
+  background: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* State badges — icon + label. NEVER color alone. */
+.draftBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--color-ai-draft);
+  background: rgba(179, 114, 15, 0.12);
+  border: 1px solid rgba(179, 114, 15, 0.25);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.confirmedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--color-confirmed);
+  background: rgba(15, 110, 99, 0.10);
+  border: 1px solid rgba(15, 110, 99, 0.20);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── Body ─── */
+.panelBody {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ─── Summary section ─── */
+.summarySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fieldLabel {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-foreground-muted);
+}
+
+/* Draft textarea — dashed bottom border signals "editable, not yet confirmed" */
+.summaryTextarea {
+  width: 100%;
+  padding: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  border-bottom: 2px dashed var(--color-ai-draft);
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.summaryTextarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Confirmed text — dashed underline REMOVED, plain surface */
+.summaryText {
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  max-width: none;
+}
+
+/* ─── Key points ─── */
+.keyPoints {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.keyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.keyPoint {
+  display: flex;
+  gap: var(--space-2);
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+  line-height: 1.5;
+}
+
+.bullet {
+  color: var(--color-foreground-muted);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+
+/* ─── Actions ─── */
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ─── Error ─── */
+.errorBox {
+  padding: var(--space-3) var(--space-4);
+  background: #FAEAEA;
+  border: 1px solid #EDB8B8;
+  border-left: 3px solid var(--color-critical);
+  border-radius: var(--radius-sm);
+  color: var(--color-critical);
+  font-size: var(--text-body);
+}
