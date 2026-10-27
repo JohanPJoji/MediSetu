@@ -1,121 +1,82 @@
 # MediSetu
 
-MediSetu is an AI-assisted patient intake and clinical workflow prototype built around:
+MediSetu is an AI-assisted patient intake and clinical workflow platform prototype. It helps patients describe their symptoms, supports doctors in reviewing consultations, and connects clinical workflows with pharmacy and laboratory operations.
 
-- React + TypeScript frontend
-- FastAPI backend
-- PostgreSQL
-- SQLAlchemy + Alembic
-- JWT authentication + RBAC
-- provider-agnostic AI/STT/OCR/TTS interfaces
+## Features
 
-## Repository
+### Patient Consultations
+- Create and manage patient consultations.
+- Conduct AI-assisted symptom intake through voice input or typed responses.
+- Record patient answers and AI follow-up questions in a consultation transcript.
+- Track consultation status throughout the intake and review process.
+- Submit completed intake information for doctor review.
 
-```text
-frontend/   React/Vite client
-backend/    FastAPI + PostgreSQL application
-ai/         prompts/schemas shared by AI workflows
-docs/       requirements, architecture and current state
-```
+### AI-Assisted Clinical Workflows
+- Generate clinical summaries from consultation information.
+- Use conversational follow-up questions to collect relevant symptom details.
+- Identify potential emergency red flags and display urgent-care instructions.
+- Support speech-to-text transcription through the configured speech recognition provider.
+- Provide optional AI-generated medicine suggestions when a supported external LLM provider is configured.
 
-## Local setup
+**Important:** AI-generated content is intended to support clinical documentation and review. It must not replace professional medical judgment.
 
-### 1. PostgreSQL
+### Doctor Dashboard
+- Search for and select patients.
+- View a patient's consultation history and status.
+- Review consultation transcripts and available clinical information.
+- Access AI-assisted clinical summaries.
+- Manage consultation review and completion workflows.
+- Create prescriptions through the supported prescription workflow.
 
-Create a PostgreSQL database and user matching `DATABASE_URL`, or use:
+### Pharmacy Management
+- View pharmacy orders generated through the prescription workflow.
+- Review prescribed medicines, dosage, frequency, duration, and quantity.
+- Track order statuses through the pharmacy workflow.
+- Support stock checking and reservation where implemented by the configured backend.
 
-```bash
-docker compose up -d postgres
-```
+### Laboratory and Referrals
+- Access laboratory workflows and manage supported laboratory orders.
+- Create and track referrals through the available referral functionality.
 
-### 2. Backend
+### Additional Application Modules
+The application also includes backend APIs and frontend modules for:
+- Authentication and role-based access control (RBAC)
+- Patient and doctor management
+- Medicine catalog and inventory
+- Inventory batches and medicine alerts
+- Billing and payments
+- Pharmacy orders and prescriptions
 
-From `backend/`:
+The availability of individual features depends on the implemented API workflows, database configuration, and external service configuration.
 
-```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
+## Technology Stack
 
-pip install -r requirements.txt
-```
+- **Frontend:** React, TypeScript, Vite
+- **Backend:** Python, FastAPI
+- **Database:** PostgreSQL
+- **ORM:** SQLAlchemy with asynchronous database access
+- **Migrations:** Alembic
+- **Authentication:** JWT with role-based access control
+- **AI integrations:** Provider-agnostic interfaces for AI, speech-to-text (STT), optical character recognition (OCR), and text-to-speech (TTS)
 
-Set environment variables (see root `.env.example`), including:
-
-```text
-DATABASE_URL=postgresql+asyncpg://...
-JWT_SECRET=<long random secret>
-```
-
-Apply migrations:
-
-```bash
-alembic upgrade head
-```
-
-Create the local demo users:
-
-```bash
-python -m app.seed_demo
-```
-
-Start the API:
-
-```bash
-uvicorn app.main:app --reload
-```
-
-API documentation:
+## Repository Structure
 
 ```text
-http://localhost:8000/docs
+frontend/   React and Vite frontend
+backend/    FastAPI backend and database integration
+ai/         Shared AI prompts and schemas
+docs/       Requirements, architecture, and current-state documentation
 ```
 
-### 3. Frontend
+## Local Setup
 
-From `frontend/`:
+### Prerequisites
 
-```bash
-npm install
-npm run dev
-```
+Install the following before starting:
 
-The Vite development server proxies `/api` to `http://localhost:8000`.
+- Python compatible with the backend dependencies
+- Node.js and npm
+- PostgreSQL, or Docker with Docker Compose
+- Git, if cloning the repository
 
-## Demo accounts
-
-The optional `app.seed_demo` command creates local-only demo accounts:
-
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@medisetu.dev | Admin@123456 |
-| Doctor | doctor@medisetu.dev | Doctor@12345 |
-| Pharmacy | pharmacy@medisetu.dev | Pharmacy@12345 |
-| Nurse | nurse@medisetu.dev | Nurse@12345 |
-| Patient | patient@medisetu.dev | Patient@12345 |
-
-Change these credentials before any shared deployment.
-
-## Safety boundary
-
-The AI is a documentation/decision-support component. It must not independently diagnose, prescribe, change doctor-confirmed records, or modify pharmacy inventory.
-
-External ABHA/HIS/FHIR adapters and AI/STT/OCR/TTS providers may run in mock/development mode until real credentials/providers are configured.
-
-## Verification status
-
-See `docs/CURRENT_STATE.md` for the exact verified/unverified status. This repository should not be considered production-certified clinical software without formal security, privacy, clinical safety, and integration validation.
-
-## Current verification checkpoint
-
-The backend has previously passed the original 49-test suite on the supported local
-Python/PostgreSQL environment. The integration pass adds laboratory, billing,
-payments, inventory-batch and medicine-alert APIs plus a lightweight React/Vite demo
-frontend. Run the backend test suite, Alembic upgrade and frontend production build
-again after this integration before treating the repository as release-verified.
-
-## Amal Jyothi feature merge
-
-The integrated project now includes local voice transcription, confidence-gated speech intake, conversational follow-up questions, doctor-facing transcript summaries, optional local TTS responses, and deterministic emergency red-flag handling. These features are implemented on MediSetu's existing PostgreSQL/UUID/RBAC consultation model rather than introducing the Amal project's separate database/auth stack.
+### 
